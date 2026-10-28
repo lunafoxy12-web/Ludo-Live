@@ -3,21 +3,36 @@ name: Build Android App Bundle (.aab)
 on:
   push:
     branches: [ main, master ]
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew || chmod +x android/gradlew
+
       - name: Build Gradle AAB
-        run: ./gradlew bundleRelease
+        run: |
+          if [ -f "./gradlew" ]; then
+            ./gradlew bundleRelease
+          elif [ -f "./android/gradlew" ]; then
+            cd android && ./gradlew bundleRelease
+          else
+            echo "gradlew not found" && exit 1
+          fi
+
       - name: Upload AAB Artifact
         uses: actions/upload-artifact@v4
         with:
           name: release-aab
-          path: app/build/outputs/bundle/release/*.aab
+          path: |
+            **/build/outputs/bundle/release/*.aab
