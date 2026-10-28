@@ -1,0 +1,69 @@
+{
+  "entities": {
+    "User": {
+      "collection": "users",
+      "path": "/users/{userId}",
+      "description": "User profile with 50-coin sign-up bonus, stats, and online status.",
+      "fields": {
+        "id": { "type": "string", "description": "Authenticated user UID" },
+        "displayName": { "type": "string", "description": "User display name" },
+        "email": { "type": "string", "description": "User email address" },
+        "photoUrl": { "type": "string", "description": "Avatar photo URL" },
+        "coins": { "type": "number", "description": "Virtual coins balance, initialized with 50-coin sign-up bonus" },
+        "gems": { "type": "number", "description": "Virtual gems balance, initialized with 10 gems" },
+        "winCount": { "type": "number", "description": "Total matches won" },
+        "totalMatches": { "type": "number", "description": "Total matches played" },
+        "status": { "type": "string", "description": "Online presence status (online, in_game, offline)" },
+        "createdAt": { "type": "timestamp", "description": "Account registration timestamp" },
+        "updatedAt": { "type": "timestamp", "description": "Profile modification timestamp" }
+      }
+    },
+    "Game": {
+      "collection": "games",
+      "path": "/games/{gameId}",
+      "description": "Live Ludo game state with board occupancy, turn management, and real-time moves.",
+      "fields": {
+        "gameId": { "type": "string", "description": "Unique game ID" },
+        "hostUserId": { "type": "string", "description": "Host user UID" },
+        "status": { "type": "string", "description": "WAITING, IN_PROGRESS, COMPLETED, ABANDONED" },
+        "gameMode": { "type": "string", "description": "QUICK_1V1, CLASSIC_4P, TEAM_2V2" },
+        "stakeCoins": { "type": "number", "description": "Wagered stake per player" },
+        "potCoins": { "type": "number", "description": "Total winner reward pot" },
+        "playerUids": { "type": "array", "description": "Array of user UIDs participating in game" },
+        "players": { "type": "map", "description": "Map of UID to player details (displayName, color, photoUrl, isReady)" },
+        "currentTurnUserId": { "type": "string", "description": "UID of player whose turn it is" },
+        "currentTurnColor": { "type": "string", "description": "Active color: RED, GREEN, YELLOW, BLUE" },
+        "turnStartTime": { "type": "timestamp", "description": "Timestamp when current turn began" },
+        "turnTimeoutSeconds": { "type": "number", "description": "Turn countdown duration in seconds (default 15)" },
+        "consecutiveSixes": { "type": "number", "description": "Count of consecutive sixes rolled by active player" },
+        "diceRoll": { "type": "number", "description": "Current dice value rolled (1..6) or null" },
+        "diceRolled": { "type": "boolean", "description": "Whether current player has rolled the dice" },
+        "boardOccupancy": { "type": "map", "description": "Map of track tile indices (0..51) to list of occupant pawn tokens" },
+        "homeOccupancy": { "type": "map", "description": "Map of player color to count of finished pawns in home (0..4)" },
+        "pawns": { "type": "map", "description": "Map of player color to array of 4 pawn state objects (id, step, state)" },
+        "lastMove": { "type": "map", "description": "Record of previous move (pawnId, color, fromStep, toStep, captured)" },
+        "winnerUserId": { "type": "string", "description": "UID of match winner" },
+        "winnerColor": { "type": "string", "description": "Color of match winner" },
+        "createdAt": { "type": "timestamp", "description": "Game creation timestamp" },
+        "updatedAt": { "type": "timestamp", "description": "Last game update timestamp" }
+      }
+    },
+    "UserChallenge": {
+      "collection": "challenges",
+      "path": "/challenges/{challengeId}",
+      "description": "Direct player-to-player game challenge invite.",
+      "fields": {
+        "id": { "type": "string", "description": "Unique challenge ID" },
+        "fromUserId": { "type": "string", "description": "Sender UID" },
+        "fromUserName": { "type": "string", "description": "Sender display name" },
+        "toUserId": { "type": "string", "description": "Receiver UID" },
+        "toUserName": { "type": "string", "description": "Receiver display name" },
+        "gameMode": { "type": "string", "description": "Target game mode" },
+        "stakeCoins": { "type": "number", "description": "Wagered stake coins" },
+        "status": { "type": "string", "description": "PENDING, ACCEPTED, DECLINED, CANCELLED" },
+        "roomId": { "type": "string", "description": "Associated game ID once accepted" },
+        "createdAt": { "type": "timestamp", "description": "Challenge creation timestamp" }
+      }
+    }
+  }
+}

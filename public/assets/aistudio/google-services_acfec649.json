@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "282424003181",
+    "project_id": "gen-lang-client-0481358410",
+    "storage_bucket": "gen-lang-client-0481358410.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:282424003181:android:71d3a4cd67d64c69fc4d64",
+        "android_client_info": {
+          "package_name": "com.aistudio.ludolive.kqrx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "282424003181-o25ink17r55d1kbrbbum0hvrv3vfhtg2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aistudio.ludolive.kqrx",
+            "certificate_hash": "c0da161395fa57db8f1aebe90cbff6d26ae4cdb1"
+          }
+        },
+        {
+          "client_id": "282424003181-c4hmekkoosimipn5sqk675qbln5gskq9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDr6nBzlDatO2uKmDZt9RHmtcWAYwWUXQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "282424003181-c4hmekkoosimipn5sqk675qbln5gskq9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:282424003181:android:eea8685aa29daa88fc4d64",
+        "android_client_info": {
+          "package_name": "com.mrpirate.ludolive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "282424003181-c4hmekkoosimipn5sqk675qbln5gskq9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDr6nBzlDatO2uKmDZt9RHmtcWAYwWUXQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "282424003181-c4hmekkoosimipn5sqk675qbln5gskq9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

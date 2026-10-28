@@ -1,0 +1,6 @@
+{
+  "name": "Ludo Live",
+  "description": "Ludo Live Video & Social mobile game with real-time video pods, heuristic bot AI, 1v1, 2v2, 4-player modes, interactive gifting, and arcade coin stakes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
